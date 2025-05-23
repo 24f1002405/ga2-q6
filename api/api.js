@@ -1,4 +1,4 @@
-export default function GET(request) {
+export function GET(request) {
     const data = {
         "marks": [10, 20]
     }
