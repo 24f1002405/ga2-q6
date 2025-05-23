@@ -9,5 +9,8 @@ export async function GET(request) {
     const { searchParams } = new URL(request.url);
     const names = searchParams.getAll('name');
 
-    return Response.json(names);
+    const mark1 = data.find((elem) => elem.name == names[0]).marks;
+    const mark2 = data.find((elem) => elem.name == names[1]).marks;
+
+    return Response.json({"marks": [mark1, mark2]});
 }
