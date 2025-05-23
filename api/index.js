@@ -5,10 +5,6 @@ export async function GET(request) {
     const filePath = path.join(process.cwd(), 'data.json');
     const fileContent = fs.readFileSync(filePath, 'utf-8');
     const data = JSON.parse(fileContent);
-    try {
-        // console.log(request.url);
-        return Response.json(request);
-    } catch (err) {
-        return Response.json({"message": err.message})
-    }
+    console.log(request);
+    return Response.json(request);
 }
