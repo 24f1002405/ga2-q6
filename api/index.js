@@ -9,11 +9,14 @@ export async function GET(request) {
     const { searchParams } = new URL(request.url);
     const names = searchParams.getAll('name');
 
-    const mark1 = data.find((elem) => elem.name == names[0]).marks;
-    const mark2 = data.find((elem) => elem.name == names[1]).marks;
+    const marks = [];
+    names.forEach((name) => {
+        const mark = data.find((elem) => elem.name == name).marks;
+        marks.push(mark);
+    });
 
     return Response.json({
-        "marks": [mark1, mark2]
+        "marks": marks,
     }, {
         headers: {
             'Access-Control-Allow-Origin': '*',
