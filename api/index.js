@@ -1,5 +1,11 @@
+import path from 'path';
+import fs from 'fs';
+
 export async function GET(request) {
-    const response = await fetch('https://api.vercel.app/products');
-    const products = await response.json();
-    return Response.json(products);
+    const filePath = path.join(process.cwd(), 'data.json');
+    const fileContent = fs.readFileSync(filePath, 'utf-8');
+    const data = JSON.parse(fileContent);
+
+
+    return Response.json(request.query);
 }
