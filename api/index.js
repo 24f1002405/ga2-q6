@@ -7,7 +7,7 @@ export async function GET(request) {
     const data = JSON.parse(fileContent);
     try {
         // console.log(request.url);
-        return Response.json(request.url);
+        return Response.json(request);
     } catch (err) {
         return Response.json({"message": err.message})
     }
