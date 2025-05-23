@@ -1,6 +1,5 @@
-export function GET(request) {
-    const data = {
-        "marks": [10, 20]
-    }
-    return new Response.json(data);
+export async function GET(request) {
+    const response = await fetch('https://api.vercel.app/products');
+    const products = await response.json();
+    return Response.json(products);
 }
